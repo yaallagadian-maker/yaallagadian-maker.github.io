@@ -543,3 +543,14 @@ h2 .sub { display: block; font-size: .55em; color: var(--muted); margin-top: .2e
 .beauty-shot img { display: block; width: 100%; height: auto; border-radius: 16px; border: 2.5px solid var(--bur); background: #111; }
 @media (max-width: 860px) { .f-beauty { grid-template-columns: 1fr; gap: 20px; } }
 .f-beauty .case-sub { font-size: 1.35rem; margin: -.2rem 0 .6rem; }
+
+/* Canva before/after: two equal sides */
+.f-canva { background: var(--paper); box-shadow: 8px 8px 0 var(--blue-2); }
+.f-canva .rebrand { grid-template-columns: 1fr auto 1fr; align-items: start; margin-top: 1.6rem; }
+.f-canva .rb-arrow { align-self: center; }
+.f-canva .did.lang { margin-top: 1.4rem; }
+@media (max-width: 860px) {
+  .f-canva .rebrand { grid-template-columns: 1fr; }
+  .f-canva .rb-arrow { justify-self: center; transform: rotate(-90deg); }
+  .f-canva .did.lang { grid-template-columns: 1fr; }
+}
