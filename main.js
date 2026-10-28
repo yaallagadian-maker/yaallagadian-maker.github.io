@@ -157,3 +157,15 @@ const loopIO = new IntersectionObserver((entries) => entries.forEach((e) => {
   if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
 }), { threshold: 0.3 });
 document.querySelectorAll(".noir-row video").forEach((v) => loopIO.observe(v));
+
+/* ---------- Deep links (#talking etc.): stay on target while images above it load ---------- */
+const hashTarget = location.hash && document.querySelector(location.hash);
+if (hashTarget) {
+  let userMoved = false;
+  const stop = () => { userMoved = true; };
+  ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) => addEventListener(ev, stop, { once: true, passive: true }));
+  const align = () => { if (!userMoved) hashTarget.scrollIntoView({ block: "start", behavior: "instant" }); };
+  document.addEventListener("load", (e) => { if (e.target.tagName === "IMG") align(); }, true);
+  addEventListener("load", align);
+  setTimeout(() => { userMoved = true; }, 4000);
+}
