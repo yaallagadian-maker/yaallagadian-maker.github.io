@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>יעלה גדיאן · סושיאל, תוכן ו-AI</title>
+  <meta name="description" content="יעלה גדיאן — ניהול סושיאל, יצירת תוכן ופתרונות AI לבעלי עסקים. תיק עבודות שבנוי כמו מסלול: מהרעיון הגולמי ועד תוכן שעובד.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOP BAR: the route ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#start" aria-label="יעלה גדיאן — לראש הדף">
+      <svg class="brand-pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 0C5.4 0 0 5.3 0 11.9 0 20.8 12 32 12 32s12-11.2 12-20.1C24 5.3 18.6 0 12 0z"/><circle cx="12" cy="12" r="4.6"/></svg>
+      יעלה גדיאן
+    </a>
+    <nav class="route" aria-label="תחנות במסלול">
+      <ol>
+        <li><a href="#about" data-stop="about"><span class="dot"></span>מי אני</a></li>
+        <li><a href="#process" data-stop="process"><span class="dot"></span>הדרך</a></li>
+        <li><a href="#work" data-stop="work"><span class="dot"></span>עבודות</a></li>
+        <li><a href="#services" data-stop="services"><span class="dot"></span>שירותים</a></li>
+        <li><a href="#academy" data-stop="academy"><span class="dot"></span>בקרוב</a></li>
+        <li><a href="#contact" data-stop="contact"><span class="dot"></span>היעד</a></li>
+      </ol>
+    </nav>
+    <a class="btn btn-sm" href="https://wa.me/972525669317?text=%D7%94%D7%99%D7%99%20%D7%99%D7%A2%D7%9C%D7%94%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8" target="_blank" rel="noopener">בואו נדבר</a>
+  </div>
+  <div class="trip" aria-hidden="true"><span class="trip-fill"></span></div>
+</header>
+
+<main id="journey">
+  <!-- the road is drawn by main.js through every stop -->
+  <svg id="road" aria-hidden="true">
+    <path class="road-base"/>
+    <path class="road-done"/>
+    <path class="road-lines"/>
+    <g id="traveler">
+      <circle r="27" class="trav-ring"/>
+      <clipPath id="trav-clip"><circle r="21"/></clipPath>
+      <image href="images/yaela.jpg" x="-21" y="-21" width="42" height="42" clip-path="url(#trav-clip)" preserveAspectRatio="xMidYMid slice"/>
+    </g>
+  </svg>
+
+  <!-- ============ ק"מ 0 · START ============ -->
+  <section class="stop road-r hero" id="start">
+    <span class="sign sign-start">ק״מ<b>0</b></span>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">נקודת היציאה</p>
+        <h1>יעלה<br>גדיאן</h1>
+        <p class="hand hl">תוכן שמדבר, מוכר ומתחבר</p>
+        <p class="lead">סושיאל, תוכן ו-AI לבעלי עסקים. אני לא רק מעלה פוסטים — אני ממפה את הדרך. מהשיחה הראשונה ועד שהתוכן עובד בשבילכם, כל תחנה בדרך כבר מתוכננת.</p>
+        <div class="cta-row">
+          <a class="btn" href="#about">יוצאים לדרך
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m0 0-6-6m6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#work">ישר לעבודות</a>
+        </div>
+      </div>
+      <div class="hero-pin" aria-hidden="true">
+        <div class="pin">
+          <img src="images/yaela.jpg" alt="">
+        </div>
+        <span class="pin-label hand">יעלה גדיאן</span>
+        <span class="sticker s1">סושיאל</span>
+        <span class="sticker s2">AI</span>
+        <span class="sticker s3">ימי צילום</span>
+        <span class="sticker s4">אסטרטגיה</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 01 · ממשיכים ל: מי אני</span></div>
+
+  <!-- ============ STOP 1 · ABOUT ============ -->
+  <section class="stop road-l" id="about">
+    <span class="sign">1</span>
+    <div class="wrap">
+      <p class="eyebrow">תחנה 01 · מי אני</p>
+      <h2>נעים להכיר, <span class="mark">אני יעלה</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="lead">בת 23, בוגרת קורס ניהול ושיווק עסקים ברשתות החברתיות, מתמחה בכל מה שקשור ל-AI — ובמקצוע, בודקת תוכנה.</p>
+          <p>אני יודעת לקחת רעיון גולמי ולהפוך אותו לתוכן ויזואלי שמושך תשומת לב ומניע לפעולה. אני מתאימה טון וסגנון לקהל היעד — פיד מסודר ומושך, סטוריז, רילס וימי צילום — ומחברת לזה כלים חכמים שחוסכים לבעלי עסקים זמן, כסף וכאב ראש.</p>
+          <p>את העיצובים עצמם — פוסטים, סטוריז, קרוסלות, מצגות וספרי מותג — אני מעצבת ב<b>קנבה</b>, ברמה מתקדמת.</p>
+          <p class="hand big">החיבור שלי: יצירתיות של סושיאל + חשיבה של AI + עין של בודקת תוכנה</p>
+        </div>
+        <div class="about-side reveal">
+          <h3>איזה תוכן כבר יצרתי?</h3>
+          <ul class="niches">
+            <li class="c-yellow"><span>🍰</span>מותגי מזון</li>
+            <li class="c-pink"><span>💄</span>קוסמטיקה</li>
+            <li class="c-blue"><span>🎉</span>אירועים</li>
+            <li class="c-yellow"><span>🛋️</span>עיצוב פנים</li>
+          </ul>
+          <h3>ארגז הכלים</h3>
+          <ul class="chips">
+            <li class="hot">Canva — רמה מתקדמת</li><li class="hot">עריכת סרטוני דיבור</li><li>אסטרטגיית תוכן</li><li>ניהול רשתות</li><li>כתיבת תסריטים</li><li>ימי צילום</li>
+            <li>עריכת וידאו</li><li>וידאו ב-AI</li><li>סוכני AI</li><li>דפי נחיתה</li><li>ספרי מותג</li><li>עבודה עם משפיעניות</li><li>בדיקות תוכנה (QA)</li>
+          </ul>
+        </div>
+      </div>
+
+      <article class="edge reveal">
+        <div class="edge-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+        </div>
+        <div>
+          <p class="case-tag">היתרון שלי</p>
+          <h3>אני בודקת תוכנה — ולכן ה-AI שאני בונה נבדק לפני שהוא פוגש לקוחות</h3>
+          <p>במקצוע שלי אני בודקת תוכנה: התפקיד שלי הוא למצוא איפה דברים נשברים לפני שהם מגיעים למשתמש. בעולם ה-AI זה יתרון אמיתי — כי כלי AI יכולים להישמע בטוחים ועדיין לטעות. כל סוכן, אוטומציה או מכונת עריכה שאני בונה עוברים אצלי בדיקות לפני שהם עולים לאוויר.</p>
+          <ul class="edge-list">
+            <li><b>תרחישי קצה</b>מה קורה כשלקוח שואל משהו לא צפוי, כותב בשגיאות או מנסה "לשבור" את הסוכן</li>
+            <li><b>דיוק התשובות</b>בודקת שה-AI לא ממציא מידע, מחירים או הבטחות בשם העסק</li>
+            <li><b>בטיחות ופרטיות</b>שמירה על המידע של העסק והלקוחות, ומה מותר ואסור לכלי לעשות</li>
+            <li><b>בדיקה לפני עלייה</b>מריצה, מתעדת ומתקנת — ורק אז מעבירה לשימוש אמיתי</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 02 · ממשיכים ל: הדרך שלנו</span></div>
+
+  <!-- ============ STOP 2 · PROCESS ============ -->
+  <section class="stop road-r" id="process">
+    <span class="sign">2</span>
+    <div class="wrap">
+      <p class="eyebrow">תחנה 02 · איך זה עובד</p>
+      <h2>הדרך שלנו <span class="mark">ביחד</span></h2>
+      <p class="lead narrow">כל לקוח עובר איתי מסלול. אני לא מדלגת על תחנות — כל שלב נבנה על הקודם, ולכן התוכן לא רק יפה, הוא עובד.</p>
+      <ol class="steps">
+        <li class="reveal c-yellow"><b>01</b><h3>אפיון העסק וניתוח שוק</h3><p>הבנת קהל היעד, המתחרים והמיתוג הרצוי בשוק.</p></li>
+        <li class="reveal c-pink"><b>02</b><h3>בניית זהות מותג</h3><p>שפה ויזואלית שמשקפת את האופי והערכים של העסק — וספר מותג מסודר שנשאר אצלכם.</p></li>
+        <li class="reveal c-blue"><b>03</b><h3>סידור הרשתות</h3><p>התאמת כל הפרופילים והעמודים לזהות החדשה.</p></li>
+        <li class="reveal c-blue"><b>04</b><h3>אסטרטגיית תוכן</h3><p>תוכנית תוכן מדויקת שמותאמת למטרות וללידים.</p></li>
+        <li class="reveal c-pink"><b>05</b><h3>הפקה וימי צילום</h3><p>כתיבת תסריטים, ימי צילום ועריכת וידאו שמניע לפעולה.</p></li>
+        <li class="reveal c-yellow"><b>06</b><h3>ניהול ותחזוקה שוטפת</h3><p>ניהול רציף של הרשתות, עלייה לאוויר ואופטימיזציה.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 03 · ממשיכים ל: העבודות</span></div>
+
+  <!-- ============ STOP 3 · WORK ============ -->
+  <section class="stop road-l" id="work">
+    <span class="sign">3</span>
+    <div class="wrap">
+      <p class="eyebrow">תחנה 03 · עבודות</p>
+      <h2>אלו הפרויקטים שלי <span class="hand sub">וצורת החשיבה מאחוריהם</span></h2>
+
+      <article class="case reveal">
+        <div class="case-top">
+          <div class="case-head">
+            <p class="case-tag">Case Study · מיתוג וניהול מלא</p>
+            <h3>סופיה מתוקים — הדרך לצמיחה</h3>
+            <p>הקונדיטוריה משדרות הגיעה אליי בתור "אביה קייקס". עברנו יחד את כל שש התחנות — מאפיון וניתוח שוק, דרך שם, לוגו וזהות מותג חדשים וסידור הרשתות, ועד ימי צילום, השקות וניהול שוטף.</p>
+          </div>
+          <ul class="case-route">
+            <li>אפיון</li><li>מיתוג</li><li>רשתות</li><li>אסטרטגיה</li><li>צילום</li><li>ניהול</li>
+          </ul>
+        </div>
+
+        <p class="case-sub">לפני ואחרי — מ"אביה קייקס" ל"סופיה מתוקים":</p>
+        <div class="rebrand">
+          <figure class="rb rb-old">
+            <span class="rb-tag">לפני · אביה קייקס</span>
+            <div class="rb-imgs three">
+              <img src="images/sw-old-logo.jpg" alt="הלוגו הישן של אביה קייקס" loading="lazy">
+              <img src="images/sw-old-heart.jpg" alt="פוסט ישן: עוגת לב לבנה" loading="lazy">
+              <img src="images/sw-old-45.jpg" alt="פוסט ישן: עוגת 45" loading="lazy">
+            </div>
+          </figure>
+          <span class="rb-arrow" aria-hidden="true">←</span>
+          <figure class="rb rb-new">
+            <span class="rb-tag">אחרי · סופיה מתוקים</span>
+            <img class="rb-logo" src="images/sw-new-logo.jpg" alt="הלוגו החדש של סופיה מתוקים" loading="lazy">
+            <div class="rb-imgs four">
+              <img src="images/sw-new-princess.jpg" alt="עוגת נסיכות, 815 צפיות" loading="lazy">
+              <img src="images/sw-new-candle.jpg" alt="עוגת נר, 400 צפיות" loading="lazy">
+              <img src="images/sw-new-photo-cake.jpg" alt="עוגת תמונות, 375 צפיות" loading="lazy">
+              <img src="images/sw-new-rolls.jpg" alt="מגולגלות קינדר, 624 צפיות" loading="lazy">
+              <img src="images/sw-new-shavuot.jpg" alt="תפריט שבועות מעוצב בשפת המותג" loading="lazy">
+            </div>
+          </figure>
+        </div>
+
+        <p class="case-sub">מה יצרנו לסופיה מתוקים בדרך:</p>
+        <div class="case-works">
+          <figure class="cw">
+            <div class="shot"><img src="images/cookies-launch.jpg" alt="פיד השקת עוגיות לסופיה מתוקים" loading="lazy"></div>
+            <figcaption><b>השקת עוגיות</b>פיד מלא לקראת השקת מוצר חדש — רצף פוסטים שבנה סיפור מותג עקבי, מהטיזר ועד ההשקה.<span class="swipe">← החליקו לצפייה בכל התמונות</span></figcaption>
+          </figure>
+          <figure class="cw">
+            <div class="shot"><img src="images/bachelorette.jpg" alt="צילומי אוכל במסיבת רווקות" loading="lazy"></div>
+            <figcaption><b>מסיבת רווקות</b>צילום תוכן אוכל אירועי, עם דגש על תאורה, סטיילינג וזוויות שמעצימות את המוצר בסביבה חיה.<span class="swipe">← החליקו לצפייה בכל התמונות</span></figcaption>
+          </figure>
+          <figure class="cw">
+            <div class="shot"><img src="images/stories.jpg" alt="סדרת סטוריז מהאירוע" loading="lazy"></div>
+            <figcaption><b>סדרת סטוריז להייליט</b>סטוריז שנבנו במיוחד להייליט של האירוע — מאחורי הקלעים, ההכנות והרגעים הכי טעימים.<span class="swipe">← החליקו לצפייה בכל התמונות</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="case-reel">
+          <figure class="reel">
+            <video src="videos/sw-cloud-cake.mp4" poster="images/sw-reel-cloud.jpg" preload="none" playsinline controls></video>
+            <figcaption>עוגת עננים ומטוס<span>0:23</span></figcaption>
+          </figure>
+          <div>
+            <p class="case-tag">רילס · עריכה ידנית, בלי AI</p>
+            <h4>מהבקשה של הלקוחה — ועד התוצאה</h4>
+            <p>רילס מאחורי הקלעים שערכתי ידנית: מצילום המסך של ההזמנה, דרך העבודה על עוגת העננים והמטוס, ועד הרגע שהיא נדלקת. סיפור שלם ב-23 שניות — שמראה ללקוחות הבאים בדיוק איך זה עובד.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature f-talk reveal" id="talking">
+        <div class="feature-head">
+          <p class="case-tag">עריכת סרטוני דיבור</p>
+          <h3>סרטוני דיבור שמחזיקים עד השנייה האחרונה</h3>
+          <p>מצלמים מול המצלמה — ואני הופכת את זה לסרטון שרוצים לראות עד הסוף: חותכת שתיקות וגמגומים, בונה קצב, מוסיפה כתוביות שמדגישות את המילים החשובות וכותרת פתיחה שעוצרת את הגלילה.</p>
+          <ul class="machine">
+            <li>חיתוך שתיקות וקצב</li><li>כתוביות עם הדגשות</li><li>הוק בשנייה הראשונה</li><li>גרפיקה ומונים</li><li>קריאה לפעולה בסוף</li>
+          </ul>
+        </div>
+        <div class="reels four" aria-label="סרטוני דיבור שערכתי">
+          <figure class="reel">
+            <video src="videos/keren-avent.mp4" poster="images/keren-avent.jpg" preload="none" playsinline controls></video>
+            <figcaption>קרן מוכתר × Philips Avent<span>0:45</span></figcaption>
+            <p class="reel-note">שיתוף פעולה ממומן: הסבר מוצר מול המצלמה, כתוביות וכותרות לכל שלב.</p>
+          </figure>
+          <figure class="reel">
+            <video src="videos/creator-rule-of-three.mp4" poster="images/creator-reel-1.jpg" preload="none" playsinline controls></video>
+            <figcaption>קרן מוכתר — חוק השלוש<span>1:23</span></figcaption>
+            <p class="reel-note">דיבור שמוביל בין לוקים, מונה גרפי וקוד הנחה מודגש בסוף.</p>
+          </figure>
+          <figure class="reel">
+            <video src="videos/hm-sabrina-reel.mp4" poster="images/hm-cover-sabrina-b.jpg" preload="none" playsinline controls></video>
+            <figcaption>המבריקים — מה זה בכלל סברינה?<span>0:28</span></figcaption>
+            <p class="reel-note">בעל העסק מדבר למצלמה; נערך במכונת העריכה שלי עם כתוביות ממותגות.</p>
+          </figure>
+          <figure class="reel">
+            <video src="videos/hm-steam-hour.mp4" poster="images/hm-cover-hour-b.jpg" preload="none" playsinline controls></video>
+            <figcaption>המבריקים — שעה של קיטור<span>0:40</span></figcaption>
+            <p class="reel-note">שאלה בפתיחה שעוצרת את הגלילה, ותשובה קצבית עד הסוף.</p>
+          </figure>
+        </div>
+      </article>
+
+      <article class="feature f-beauty reveal" id="beauty">
+        <div class="beauty-shot"><img src="images/ai-lipstick.jpg" alt="שלושה פריימים מסרטוני ה-AI להשקת שפתון ADAH Lip Balm Glow" loading="lazy"></div>
+        <div class="feature-head">
+          <p class="case-tag">קוסמטיקה ויופי · השקת מוצר · וידאו AI</p>
+          <h3>ADAH Lip Balm Glow — השקת שפתון</h3>
+          <p class="case-sub">עבור יוצרת תוכן שעובדת עם עדה לזורגן</p>
+          <p>לקראת ההשקה של השפתון החדש יצרתי סדרת סרטוני מוצר ב-AI: משי שחור שעוטף את האריזה, טיפות מים על המתכת וגלים של צבע אדום. עבדתי מחומרי הגלם של המותג ובניתי כל סרטון לפי הדרישות ולפלטפורמה.</p>
+          <ul class="did">
+            <li>שפה ויזואלית יוקרתית שמתאימה למותג יופי</li>
+            <li>צבעי המוצר נשמרים מדויק בכל פריים</li>
+            <li>פורמט אנכי מוכן לרילס וסטוריז</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature f-alu reveal" id="aluview">
+        <div class="feature-head">
+          <p class="case-tag">מיתוג · שפה עיצובית · קמפיין ממומן</p>
+          <h3>ALUVIEW — מיתוג חדש וקמפיין שעלה לאוויר</h3>
+          <p>חברת אלומיניום וזכוכית שהגיעה אליי ויצאה עם זהות חדשה: לוגו, פלטת צבעים ושפה עיצובית אחידה. על הבסיס הזה בנינו והרמנו קמפיין ממומן — סרטונים, סטוריז, פוסטים וקרוסלה.</p>
+        </div>
+        <ol class="trio">
+          <li><b>01</b>מיתוג חדש</li>
+          <li><b>02</b>שפה עיצובית</li>
+          <li><b>03</b>קמפיין ממומן</li>
+        </ol>
+
+        <div class="alu-brand">
+          <img src="images/alu-brand.jpg" alt="לוח המיתוג של ALUVIEW — לוגו בגרסאות ופלטת צבעים" loading="lazy">
+          <div>
+            <h4>01 · המיתוג</h4>
+            <p>לוגו שבנוי ממבנה זכוכית פנורמי עם השתקפות של נוף — בגרסה ראשית, על רקע כהה, במונוכרום ואייקון עגול לפרופיל.</p>
+            <ul class="swatches" aria-label="פלטת הצבעים">
+              <li style="--c:#2E3338">#2E3338</li>
+              <li style="--c:#4A90B8">#4A90B8</li>
+              <li style="--c:#BFE1F3">#BFE1F3</li>
+              <li style="--c:#F5F7FA">#F5F7FA</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="case-sub">02 · שפה עיצובית אחידה לכל הפלטפורמות:</p>
+        <ul class="did lang">
+          <li>כותרת בבלוק כהה עם פס תכלת — מזוהה מיד בפיד</li>
+          <li>לוגו טקסט קבוע בראש כל קריאייטיב</li>
+          <li>כפתור וואטסאפ ירוק כקריאה לפעולה אחת וברורה</li>
+          <li>צילומים אמיתיים מעבודות שבוצעו בשטח</li>
+        </ul>
+
+        <p class="case-sub">03 · הקמפיין הממומן:</p>
+        <div class="reels three" aria-label="סרטוני הקמפיין">
+          <figure class="reel">
+            <video src="videos/alu-glass.mp4" poster="images/alu-reel-1.jpg" preload="none" playsinline controls></video>
+            <figcaption>סוגרים את המרפסת בלי לסגור את הנוף<span>0:18</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/alu-sunset.mp4" poster="images/alu-reel-2.jpg" preload="none" playsinline controls></video>
+            <figcaption>רוצים ליהנות מהמרפסת גם בחורף?<span>0:18</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/alu-pergola.mp4" poster="images/alu-reel-3.jpg" preload="none" playsinline controls></video>
+            <figcaption>פרגולת אלומיניום בהתאמה אישית<span>0:21</span></figcaption>
+          </figure>
+        </div>
+        <div class="creatives">
+          <img src="images/alu-story-glass.jpg" alt="סטורי: חדר זכוכית מתחת לפרגולה" loading="lazy">
+          <img src="images/alu-feed-glass.jpg" alt="פוסט: חדר זכוכית מתחת לפרגולה" loading="lazy">
+          <img src="images/alu-story-pergola.jpg" alt="סטורי: פרגולת אלומיניום" loading="lazy">
+          <img src="images/alu-feed-pergola.jpg" alt="פוסט: פרגולת אלומיניום" loading="lazy">
+        </div>
+        <p class="strip-label">קרוסלת פרגולות · 5 שקפים</p>
+        <div class="carousel-strip">
+          <img src="images/alu-carousel-1.jpg" alt="קרוסלה 1: פרגולת אלומיניום" loading="lazy">
+          <img src="images/alu-carousel-2.jpg" alt="קרוסלה 2: תאורת LED משולבת" loading="lazy">
+          <img src="images/alu-carousel-3.jpg" alt="קרוסלה 3: בגוון ובעיצוב שאתם בוחרים" loading="lazy">
+          <img src="images/alu-carousel-4.jpg" alt="קרוסלה 4: מרפסת מוצלת" loading="lazy">
+          <img src="images/alu-carousel-5.jpg" alt="קרוסלה 5: לוגו וקריאה לפעולה" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feature-head">
+          <p class="case-tag">יום צילום · רילסים · ניהול שוטף</p>
+          <h3>נעמי סילפן — יום צילום אחד, חודשים של תוכן</h3>
+          <p>יום צילום שעשיתי לנעמי סילפן, עם תוכן בנושא אירוח. מתוכו נערכו רילסים שעברו אישור ועלו לאוויר — ושאר הצילומים מאותו יום ליוו את הניהול השוטף של הרשתות לאורך זמן.</p>
+          <ul class="feature-stats">
+            <li><b>5</b>רילסים ערוכים</li>
+            <li><b>120+</b>תמונות</li>
+            <li><b>130+</b>קטעי וידאו</li>
+          </ul>
+        </div>
+
+        <div class="reels" aria-label="רילסים לנעמי סילפן">
+          <figure class="reel">
+            <video src="videos/naomi-3-things.mp4" poster="images/naomi-reel-1.jpg" preload="none" playsinline controls></video>
+            <figcaption>3 דברים שאת כמארחת לא תעשי<span>0:24</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/naomi-prepare.mp4" poster="images/naomi-reel-2.jpg" preload="none" playsinline controls></video>
+            <figcaption>מה המארח יכול להכין לפני האירוח<span>0:39</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/naomi-candles.mp4" poster="images/naomi-reel-3.jpg" preload="none" playsinline controls></video>
+            <figcaption>עריכת שולחן לאירוח<span>0:22</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/naomi-remember.mp4" poster="images/naomi-reel-4.jpg" preload="none" playsinline controls></video>
+            <figcaption>בסוף, מה זוכרים מאירוח טוב באמת<span>0:55</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/naomi-love-hosting.mp4" poster="images/naomi-reel-5.jpg" preload="none" playsinline controls></video>
+            <figcaption>אין אדם שלא אוהב לארח<span>1:50</span></figcaption>
+          </figure>
+        </div>
+
+        <p class="case-sub">מאותו יום צילום — חומרים שליוו את הניהול השוטף:</p>
+        <div class="photo-strip">
+          <img src="images/naomi-photo-1.jpg" alt="סלט אבטיח מלמעלה" loading="lazy">
+          <img src="images/naomi-photo-2.jpg" alt="שלט סילפן בכניסה" loading="lazy">
+          <img src="images/naomi-photo-3.jpg" alt="שולחן אירוח עם עגבניות שרי" loading="lazy">
+          <img src="images/naomi-photo-4.jpg" alt="אורחות מרימות כוסית" loading="lazy">
+          <img src="images/naomi-photo-5.jpg" alt="עריכת שולחן בכחול לבן" loading="lazy">
+          <img src="images/naomi-photo-6.jpg" alt="נרות ופרחים על שולחן האירוח" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature f-yellow reveal" id="hamavrikim">
+        <div class="feature-head">
+          <p class="case-tag">מיתוג מחדש · ספר מותג · משפיעניות · מכונת עריכה AI</p>
+          <h3>המבריקים — מ"שוהם אחזקות" למותג חדש מאפס</h3>
+          <p>החברה הגיעה אליי בתור "שוהם אחזקות". בנינו מאפס לוגו ושפה חדשים, כתבתי ספר מותג מלא, חיברתי אותם למשפיעניות בעבודה שוטפת — וכל הסרטונים נערכים במכונת העריכה שבניתי.</p>
+        </div>
+
+        <p class="case-sub">לפני ואחרי — מיתוג מאפס:</p>
+        <div class="rebrand">
+          <figure class="rb rb-old">
+            <span class="rb-tag">לפני · שוהם אחזקות</span>
+            <div class="rb-imgs">
+              <img src="images/hm-old-logo.jpg" alt="הלוגו הישן של שוהם ניהול ואחזקת מבנים" loading="lazy">
+              <img src="images/hm-old-post.jpg" alt="פוסט ישן לפני ואחרי" loading="lazy">
+            </div>
+          </figure>
+          <span class="rb-arrow" aria-hidden="true">←</span>
+          <figure class="rb rb-new">
+            <span class="rb-tag">אחרי · המבריקים</span>
+            <img class="rb-logo" src="images/hm-new-logo.jpg" alt="הלוגו החדש של המבריקים" loading="lazy">
+            <div class="rb-imgs">
+              <img src="images/hm-new-carousel.jpg" alt="קרוסלה חדשה: זו הספה לפני הניקוי, 1.2K צפיות" loading="lazy">
+              <img src="images/hm-new-launch.jpg" alt="פוסט השקה חדש: NEW MACHINE" loading="lazy">
+            </div>
+          </figure>
+        </div>
+
+        <p class="case-sub">ספר מותג מלא — 22 עמודים שנשארים אצל הלקוח:</p>
+        <div class="bb-strip">
+          <img src="images/hm-bb-1.jpg" alt="ספר המותג: שער" loading="lazy">
+          <img src="images/hm-bb-2.jpg" alt="ספר המותג: הלוגו הראשי" loading="lazy">
+          <img src="images/hm-bb-3.jpg" alt="ספר המותג: פלטת הצבעים" loading="lazy">
+          <img src="images/hm-bb-4.jpg" alt="ספר המותג: טיפוגרפיה" loading="lazy">
+          <img src="images/hm-bb-5.jpg" alt="ספר המותג: שפה לרשתות החברתיות" loading="lazy">
+          <img src="images/hm-bb-6.jpg" alt="ספר המותג: בדיקה לפני פרסום" loading="lazy">
+        </div>
+        <ul class="did hm-extra">
+          <li>חיבור למשפיעניות בעבודה שוטפת — פנייה, תיאום וביקורי ניקוי</li>
+          <li>צ׳קליסט "בדיקה לפני פרסום" בתוך ספר המותג — כל פוסט נבדק לפני שעולה</li>
+        </ul>
+
+        <p class="case-sub">סרטונים ממכונת העריכה שלי:</p>
+        <ol class="machine" aria-label="איך המכונה עובדת">
+          <li>תמלול AI בעברית</li>
+          <li>בחירת הטייקים הטובים</li>
+          <li>חיתוך לפי עוצמת הקול</li>
+          <li>ניקוי והשוואת סאונד</li>
+          <li>כתוביות ומושן בצבעי המותג</li>
+          <li>ריל + הסבר מלא + קאברים</li>
+        </ol>
+
+        <div class="reels four" aria-label="סרטונים למבריקים">
+          <figure class="reel">
+            <video src="videos/hm-sabrina-reel.mp4" poster="images/hm-cover-sabrina-b.jpg" preload="none" playsinline controls></video>
+            <figcaption>מה זה בכלל סברינה?<span>0:28</span></figcaption>
+            <div class="ver" role="group" aria-label="גרסה">
+              <button class="on" data-src="videos/hm-sabrina-reel.mp4" data-poster="images/hm-cover-sabrina-b.jpg" data-len="0:28">ריל</button>
+              <button data-src="videos/hm-sabrina-full.mp4" data-poster="images/hm-cover-sabrina-a.jpg" data-len="0:43">הסבר מלא</button>
+            </div>
+          </figure>
+          <figure class="reel">
+            <video src="videos/hm-steam-reel.mp4" poster="images/hm-cover-steam-b.jpg" preload="none" playsinline controls></video>
+            <figcaption>190° של קיטור — וזהו<span>0:30</span></figcaption>
+            <div class="ver" role="group" aria-label="גרסה">
+              <button class="on" data-src="videos/hm-steam-reel.mp4" data-poster="images/hm-cover-steam-b.jpg" data-len="0:30">ריל</button>
+              <button data-src="videos/hm-steam-full.mp4" data-poster="images/hm-cover-steam-a.jpg" data-len="1:07">הסבר מלא</button>
+            </div>
+          </figure>
+          <figure class="reel">
+            <video src="videos/hm-sofa-reel.mp4" poster="images/hm-cover-sofa.jpg" preload="none" playsinline controls></video>
+            <figcaption>חשבנו שהספה אפורה<span>0:19</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/hm-steam-hour.mp4" poster="images/hm-cover-hour-b.jpg" preload="none" playsinline controls></video>
+            <figcaption>מה נכנס בשעה של קיטור?<span>0:40</span></figcaption>
+          </figure>
+        </div>
+
+        <p class="case-sub">שני קאברים לכל סרטון — והלקוח בוחר:</p>
+        <div class="covers">
+          <img src="images/hm-cover-sabrina-a.jpg" alt="קאבר סברינה, כותרת על הקיר" loading="lazy">
+          <img src="images/hm-cover-sabrina-b.jpg" alt="קאבר סברינה, פס כחול" loading="lazy">
+          <img src="images/hm-cover-steam-a.jpg" alt="קאבר קיטור, כותרת על הקיר" loading="lazy">
+          <img src="images/hm-cover-steam-b.jpg" alt="קאבר קיטור, פס כחול" loading="lazy">
+          <img src="images/hm-cover-hour-a.jpg" alt="קאבר שעה של קיטור, כותרת למעלה" loading="lazy">
+          <img src="images/hm-cover-hour-b.jpg" alt="קאבר שעה של קיטור, פס כחול" loading="lazy">
+          <img src="images/hm-cover-sofa.jpg" alt="קאבר הספה האפורה" loading="lazy">
+        </div>
+
+        <p class="case-sub">וגם בהשקת מכשיר הקיטור:</p>
+        <div class="case-works two">
+          <figure class="cw">
+            <div class="shot"><img src="images/steamer-posts.jpg" alt="פוסטים להשקת מכשיר קיטור" loading="lazy"></div>
+            <figcaption><b>סדרת פוסטים להשקה</b>שפה ויזואלית חזקה שמציגה את המכשיר החדש כמו גיבור.</figcaption>
+          </figure>
+          <figure class="cw">
+            <div class="shot"><img src="images/steamer-stories.jpg" alt="סטוריז להשקת מכשיר קיטור" loading="lazy"></div>
+            <figcaption><b>סדרת סטוריז לפני ההשקה</b>טיזרים, ספירה לאחור וחשיפה — בונים ציפייה עד הרגע עצמו.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="feature f-pink split reveal" id="creator">
+        <div class="feature-head">
+          <p class="case-tag">יוצרת תוכן · עריכה · כתוביות · גרפיקה</p>
+          <h3>קרן מוכתר — רילסים שמחזיקים עד הסוף</h3>
+          <p>היא צילמה, אני ערכתי: קצב חיתוך שמתאים לגלילה, כתוביות שמדגישות את המילים החשובות, וגרפיקה שמובילה את הצופה לאורך כל הסרטון.</p>
+          <ul class="did">
+            <li>חיתוך קצבי בין הלוקים</li>
+            <li>כתוביות עם הדגשת מילות מפתח</li>
+            <li>גרפיקת "חוק השלוש" עם מונה לוקים</li>
+            <li>הבלטת קוד ההנחה בסוף — קריאה לפעולה</li>
+          </ul>
+        </div>
+        <div class="reels solo" aria-label="רילסים לקרן מוכתר">
+          <figure class="reel">
+            <video src="videos/creator-rule-of-three.mp4" poster="images/creator-reel-1.jpg" preload="none" playsinline controls></video>
+            <figcaption>חוק השלוש — 3 לוקים מבסיס אחד<span>1:23</span></figcaption>
+          </figure>
+          <figure class="reel">
+            <video src="videos/keren-avent.mp4" poster="images/keren-avent.jpg" preload="none" playsinline controls></video>
+            <figcaption>שיתוף פעולה עם Philips Avent<span>0:45</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <div class="more-head">
+        <h3 class="more-title">עוד עבודות <span class="mark">מהדרך</span></h3>
+        <p>לקוחות ותחומים נוספים — סננו לפי מה שמעניין אתכם.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="סינון עבודות">
+        <button class="on" data-filter="all">הכול</button>
+        <button data-filter="food">מותגי מזון</button>
+        <button data-filter="events">אירועים</button>
+        <button data-filter="interior">עיצוב פנים</button>
+      </div>
+
+      <div class="projects">
+        <article class="card c-pink reveal" data-cat="food events">
+          <div class="shot"><img src="images/mama-diali.jpg" alt="נתוני צפיות של מאמא דיאלי" loading="lazy"></div>
+          <span class="badge">עשרות אלפי צפיות</span>
+          <p class="client">מאמא דיאלי</p>
+          <h3>ניהול תוכן שוטף</h3>
+          <p>ניהול תוכן שהגיע לעשרות אלפי צפיות ולידים חמים, כולל ימי צילום באירועים של המסעדה — מתכנון ועד ביצוע בשטח.</p>
+          <ul class="tags"><li>ניהול שוטף</li><li>רילס</li><li>לידים</li></ul>
+        </article>
+
+        <article class="card c-blue reveal" data-cat="interior">
+          <div class="shot"><img src="images/interior-carousel.jpg" alt="קרוסלת אינסטגרם למעצבת פנים" loading="lazy"></div>
+          <p class="client">מעצבת פנים</p>
+          <h3>קרוסלה לאינסטגרם</h3>
+          <p>עיצוב וכתיבת קרוסלה ברורה ומזמינה, עם מבנה שמניע גלילה עד הסוף.</p>
+          <ul class="tags"><li>קרוסלה</li><li>קופי</li></ul>
+        </article>
+
+        <article class="card c-pink reveal" data-cat="food">
+          <div class="shot"><img src="images/estella.jpg" alt="יום צילומים בקונדיטוריית אסטלה" loading="lazy"></div>
+          <p class="client">קונדיטוריית אסטלה</p>
+          <h3>יום צילומים</h3>
+          <p>צילום מוצר וסטודיו במסגרת קורס קונדיטוריה — תיעוד התהליך והמוצר המוגמר בסגנון ויזואלי נקי שמתאים לתוכן שיווקי.</p>
+          <ul class="tags"><li>צילום מוצר</li><li>סטודיו</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 04 · ממשיכים ל: מה אני נותנת</span></div>
+
+  <!-- ============ STOP 4 · SERVICES ============ -->
+  <section class="stop road-r" id="services">
+    <span class="sign">4</span>
+    <div class="wrap">
+      <p class="eyebrow">תחנה 04 · שירותים</p>
+      <h2>במה אני יכולה <span class="mark">לקחת אתכם רחוק</span></h2>
+      <div class="services">
+        <article class="svc c-pink reveal">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9"/></svg></div>
+          <h3>ניהול סושיאל ויצירת תוכן</h3>
+          <p>אסטרטגיה, פיד, סטוריז, רילס וימי צילום — ניהול שוטף שמביא חשיפה ולידים, לא רק לייקים.</p>
+          <p class="qa-note">✓ לכל לקוח — ספר מותג משלו</p>
+          <p class="fit"><b>מתאים ל:</b> עסקים שרוצים נוכחות קבועה ומקצועית ברשתות.</p>
+          <a class="svc-link" data-wa="היי יעלה, אשמח לשמוע על ניהול סושיאל לעסק שלי" href="#">לפרטים ←</a>
+        </article>
+        <article class="svc c-yellow reveal">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 14h8"/></svg></div>
+          <h3>בניית פורטפוליו</h3>
+          <p>תיק עבודות דיגיטלי שמספר את הסיפור שלכם ובולט מהשנייה הראשונה — בדיוק כמו זה שאתם גוללים עכשיו.</p>
+          <p class="fit"><b>מתאים ל:</b> פרילנסרים, יוצרים ונותני שירות.</p>
+          <a class="svc-link" data-wa="היי יעלה, אשמח לבנות פורטפוליו" href="#">לפרטים ←</a>
+        </article>
+        <article class="svc c-blue reveal">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9.5 7h5M9.5 11h5M9.5 15h5"/></svg></div>
+          <h3>דף נחיתה / לינק-טרי</h3>
+          <p>עמוד אחד, מטרה אחת: להפוך עוקבים לפניות. מותאם למובייל, למותג ולקהל שלכם.</p>
+          <p class="fit"><b>מתאים ל:</b> השקות, קמפיינים והביו באינסטגרם.</p>
+          <a class="svc-link" data-wa="היי יעלה, אשמח לדף נחיתה / לינק-טרי" href="#">לפרטים ←</a>
+        </article>
+        <article class="svc c-pink reveal">
+          <span class="badge badge-ai">AI</span>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="3"/><path d="m17 10 5-3v10l-5-3"/><path d="M8 9.5v5l4-2.5z"/></svg></div>
+          <h3>מכונת עריכה מבוססת AI</h3>
+          <p>מערכת עבודה שמקצרת את הדרך מחומר גלם לסרטון מוכן: חיתוך, כתוביות והתאמה לפורמטים — עם כלי AI שעושים את העבודה השחורה.</p>
+          <p class="fit"><b>מתאים ל:</b> עסקים שמצלמים הרבה ואין להם זמן לערוך.</p>
+          <p class="qa-note">✓ נבדק בשיטות בדיקות תוכנה לפני מסירה</p>
+          <a class="svc-demo" href="#hamavrikim">▶ ראו את המכונה בפעולה</a>
+          <a class="svc-link" data-wa="היי יעלה, אשמח לשמוע על מכונת העריכה ב-AI" href="#">לפרטים ←</a>
+        </article>
+        <article class="svc c-yellow reveal">
+          <span class="badge badge-ai">AI</span>
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 7V3M9 12v1.5M15 12v1.5M2 12v3M22 12v3"/></svg></div>
+          <h3>סוכני AI מותאמים לעסק</h3>
+          <p>עוזר דיגיטלי שמכיר את העסק שלכם: עונה ללקוחות, כותב תוכן בשפה שלכם ומסדר את המשימות שגוזלות לכם זמן.</p>
+          <p class="fit"><b>מתאים ל:</b> בעלי עסקים שרוצים לעבוד חכם יותר, לא קשה יותר.</p>
+          <p class="qa-note">✓ עובר בדיקות דיוק, תרחישי קצה ופרטיות לפני שעולה לאוויר</p>
+          <a class="svc-link" data-wa="היי יעלה, אשמח לשמוע על סוכן AI לעסק שלי" href="#">לפרטים ←</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 05 · התחנה הבאה בבנייה</span></div>
+
+  <!-- ============ STOP 5 · ACADEMY (coming soon) ============ -->
+  <section class="stop road-l" id="academy">
+    <span class="sign sign-soon">5</span>
+    <div class="wrap">
+      <div class="soon reveal">
+        <div class="soon-tape" aria-hidden="true"><span>בבנייה · בבנייה · בבנייה · בבנייה · בבנייה · בבנייה · בבנייה · בבנייה ·</span></div>
+        <p class="eyebrow">תחנה 05 · בקרוב</p>
+        <h2>תוכנית דיגיטלית ללימוד AI</h2>
+        <p class="lead">אני בונה תוכנית שתלמד בעלי עסקים להשתמש ב-AI בעצמם — בלי פחד, בלי ז׳רגון, ועם כלים שאפשר להפעיל כבר מחר בבוקר.</p>
+        <ul class="soon-list">
+          <li>איך לדבר עם AI כדי לקבל תוצאות טובות</li>
+          <li>יצירת תוכן, תמונות ווידאו לעסק</li>
+          <li>אוטומציות וסוכנים שחוסכים שעות</li>
+          <li>שימוש בטוח ב-AI — איך לבדוק תשובות ולא לחשוף מידע רגיש</li>
+        </ul>
+        <a class="btn btn-yellow" data-wa="היי יעלה, אשמח להצטרף לרשימת ההמתנה לתוכנית ה-AI" href="#">שמרו לי מקום ברשימת ההמתנה</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cross"><span class="km">ק״מ 06 · כמעט הגענו</span></div>
+
+  <!-- ============ DESTINATION · CONTACT ============ -->
+  <section class="stop road-r" id="contact">
+    <span class="sign sign-dest" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 22V3"/><path d="M5 3h14l-3 4.5L19 12H5" class="flag"/></svg>
+    </span>
+    <div class="wrap">
+      <div class="dest reveal">
+        <p class="eyebrow">הגעתם ליעד</p>
+        <h2>בואו נבנה ביחד את <span class="mark">התוכן הבא שלכם</span></h2>
+        <p class="hand big">אשמח לשמוע מכם</p>
+        <div class="contact-row">
+          <a class="contact c-pink" href="https://wa.me/972525669317" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2 2.5 4.3 4.5 4.6l1.2-1.2 1.8.8-.3 1.5c-3.7.3-7.6-3.6-7.3-7.3l1.5-.3.8 1.8z"/></svg>
+            <span><b>וואטסאפ</b>הכי מהיר</span>
+          </a>
+          <a class="contact c-yellow" href="tel:0525669317">
+            <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+            <span><b>052-5669317</b>טלפון</span>
+          </a>
+          <a class="contact c-blue" href="mailto:yaallagadian@gmail.com">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            <span><b>yaallagadian@gmail.com</b>מייל</span>
+          </a>
+        </div>
+      </div>
+      <footer class="foot">
+        <p class="hand big">תודה שצפיתם ;)</p>
+        <p>© 2026 יעלה גדיאן · סושיאל, תוכן ו-AI לבעלי עסקים</p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
