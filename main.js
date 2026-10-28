@@ -181,14 +181,9 @@ loopBtn?.addEventListener("click", () => {
 });
 if (loopBtn) setLoopBtn();
 
-/* ---------- Deep links (#talking etc.): stay on target while images above it load ---------- */
-const hashTarget = location.hash && document.querySelector(location.hash);
-if (hashTarget) {
-  let userMoved = false;
-  const stop = () => { userMoved = true; };
-  ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) => addEventListener(ev, stop, { once: true, passive: true }));
-  const align = () => { if (!userMoved) hashTarget.scrollIntoView({ block: "start", behavior: "instant" }); };
-  document.addEventListener("load", (e) => { if (e.target.tagName === "IMG") align(); }, true);
-  addEventListener("load", align);
-  setTimeout(() => { userMoved = true; }, 4000);
-}
+/* ---------- Every visit starts at the top, even from a link with #section ---------- */
+history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+const toTop = () => scrollTo({ top: 0, behavior: "instant" });
+toTop();
+addEventListener("load", toTop);
