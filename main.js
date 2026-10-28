@@ -150,3 +150,10 @@ document.querySelectorAll(".filters button").forEach((btn) => {
     });
   });
 });
+
+/* ---------- Cosmetics gallery: silent loops play only while on screen ---------- */
+const loopIO = new IntersectionObserver((entries) => entries.forEach((e) => {
+  const v = e.target;
+  if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+}), { threshold: 0.3 });
+document.querySelectorAll(".noir-row video").forEach((v) => loopIO.observe(v));
