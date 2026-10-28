@@ -11,8 +11,9 @@ const crosses = [...main.querySelectorAll(".cross")];
 const routeLinks = [...document.querySelectorAll(".route a")];
 
 let total = 0;
-let samples = []; // y position along the road, every STEP px of length
-const STEP = 6;
+// the road as a polyline: pts[i] = [x, y], lens[i] = length from the start.
+// Built in JS so scrolling never has to ask the SVG path for points (slow on long paths).
+let pts = [], lens = [];
 
 // WhatsApp links with a ready message per service
 document.querySelectorAll("[data-wa]").forEach((a) => {
@@ -39,7 +40,17 @@ function buildRoad() {
 
   const R = Math.min(70, gx * 1.4);
   const first = stops[0].querySelector(".sign");
-  let d = `M ${xOf(stops[0])} ${yOf(first) + first.offsetHeight / 2}`;
+  const start = [xOf(stops[0]), yOf(first) + first.offsetHeight / 2];
+  let d = `M ${start[0]} ${start[1]}`;
+  pts = [start];
+  const lineTo = (x, y) => pts.push([x, y]);
+  const quadTo = (cx, cy, x, y) => {
+    const [x0, y0] = pts[pts.length - 1];
+    for (let k = 1; k <= 12; k++) {
+      const t = k / 12, u = 1 - t;
+      pts.push([u * u * x0 + 2 * u * t * cx + t * t * x, u * u * y0 + 2 * u * t * cy + t * t * y]);
+    }
+  };
 
   crosses.forEach((c, i) => {
     const yc = yOf(c) + c.offsetHeight / 2;
@@ -48,30 +59,42 @@ function buildRoad() {
     const dir = xb < xa ? -1 : 1;
     d += ` L ${xa} ${yc - R} Q ${xa} ${yc} ${xa + dir * R} ${yc}`;
     d += ` L ${xb - dir * R} ${yc} Q ${xb} ${yc} ${xb} ${yc + R}`;
+    lineTo(xa, yc - R); quadTo(xa, yc, xa + dir * R, yc);
+    lineTo(xb - dir * R, yc); quadTo(xb, yc, xb, yc + R);
   });
 
   const last = stops[stops.length - 1];
   const dest = last.querySelector(".sign");
   d += ` L ${xOf(last)} ${yOf(dest) + dest.offsetHeight / 2}`;
+  lineTo(xOf(last), yOf(dest) + dest.offsetHeight / 2);
 
   svg.setAttribute("viewBox", `0 0 ${main.clientWidth} ${main.scrollHeight}`);
   [base, done, lines].forEach((p) => p.setAttribute("d", d));
 
-  total = base.getTotalLength();
+  lens = [0];
+  for (let k = 1; k < pts.length; k++) lens.push(lens[k - 1] + Math.hypot(pts[k][0] - pts[k - 1][0], pts[k][1] - pts[k - 1][1]));
+  total = lens[lens.length - 1];
   done.style.strokeDasharray = total;
-  samples = [];
-  for (let l = 0; l <= total; l += STEP) samples.push(base.getPointAtLength(l).y);
   update();
+}
+
+// point on the road at a given length along it
+function pointAt(len) {
+  let lo = 1, hi = lens.length - 1;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (lens[mid] < len) lo = mid + 1; else hi = mid; }
+  const [x0, y0] = pts[lo - 1], [x1, y1] = pts[lo];
+  const t = (len - lens[lo - 1]) / (lens[lo] - lens[lo - 1] || 1);
+  return { x: x0 + (x1 - x0) * t, y: y0 + (y1 - y0) * t };
 }
 
 // first length whose y reaches target (road y never goes back up)
 function lengthAtY(y) {
-  let lo = 0, hi = samples.length - 1;
-  while (lo < hi) {
-    const mid = (lo + hi) >> 1;
-    if (samples[mid] < y) lo = mid + 1; else hi = mid;
-  }
-  return Math.min(lo * STEP, total);
+  if (y <= pts[0][1]) return 0;
+  let lo = 1, hi = pts.length - 1;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (pts[mid][1] < y) lo = mid + 1; else hi = mid; }
+  const [, y0] = pts[lo - 1], [, y1] = pts[lo];
+  if (y1 <= y0) return lens[lo - 1];
+  return Math.min(lens[lo - 1] + (lens[lo] - lens[lo - 1]) * Math.min(1, (y - y0) / (y1 - y0)), total);
 }
 
 /* ---------- Scroll: drive the traveler + route progress ---------- */
@@ -81,7 +104,7 @@ function update() {
   const target = innerHeight * 0.55 - top;
   const len = lengthAtY(target);
   done.style.strokeDashoffset = total - len;
-  const p = base.getPointAtLength(len);
+  const p = pointAt(len);
   traveler.setAttribute("transform", `translate(${p.x} ${p.y}) scale(${innerWidth < 760 ? 0.62 : 1})`);
   tripFill.style.width = (len / total) * 100 + "%";
 
@@ -102,10 +125,13 @@ addEventListener("scroll", () => {
   requestAnimationFrame(() => { update(); ticking = false; });
 }, { passive: true });
 
-let rebuild;
+let rebuild, lastSize = "";
 new ResizeObserver(() => {
-  cancelAnimationFrame(rebuild);
-  rebuild = requestAnimationFrame(buildRoad);
+  const size = main.clientWidth + "x" + Math.round(main.scrollHeight);
+  if (size === lastSize) return;
+  lastSize = size;
+  clearTimeout(rebuild);
+  rebuild = setTimeout(buildRoad, 120);
 }).observe(main);
 document.fonts?.ready.then(buildRoad);
 addEventListener("load", buildRoad);
@@ -115,7 +141,7 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+}, { threshold: 0, rootMargin: "0px 0px 15% 0px" });
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
 /* ---------- Reels: only one plays at a time ---------- */
@@ -186,4 +212,3 @@ history.scrollRestoration = "manual";
 if (location.hash) history.replaceState(null, "", location.pathname + location.search);
 const toTop = () => scrollTo({ top: 0, behavior: "instant" });
 toTop();
-addEventListener("load", toTop);
