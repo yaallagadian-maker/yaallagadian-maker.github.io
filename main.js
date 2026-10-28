@@ -128,8 +128,11 @@ reels.forEach((v) => v.addEventListener("play", () => {
 document.querySelectorAll(".ver button").forEach((b) => b.addEventListener("click", () => {
   const fig = b.closest(".reel");
   const v = fig.querySelector("video");
-  fig.querySelector(".ver .on").classList.remove("on");
+  const prev = fig.querySelector(".ver .on");
+  prev.classList.remove("on");
+  prev.setAttribute("aria-pressed", "false");
   b.classList.add("on");
+  b.setAttribute("aria-pressed", "true");
   v.pause();
   v.src = b.dataset.src;
   v.poster = b.dataset.poster;
@@ -140,8 +143,11 @@ document.querySelectorAll(".ver button").forEach((b) => b.addEventListener("clic
 const cards = [...document.querySelectorAll(".card")];
 document.querySelectorAll(".filters button").forEach((btn) => {
   btn.addEventListener("click", () => {
-    document.querySelector(".filters .on").classList.remove("on");
+    const prev = document.querySelector(".filters .on");
+    prev.classList.remove("on");
+    prev.setAttribute("aria-pressed", "false");
     btn.classList.add("on");
+    btn.setAttribute("aria-pressed", "true");
     const f = btn.dataset.filter;
     cards.forEach((c) => {
       const show = f === "all" || c.dataset.cat.split(" ").includes(f);
@@ -152,11 +158,28 @@ document.querySelectorAll(".filters button").forEach((btn) => {
 });
 
 /* ---------- Cosmetics gallery: silent loops play only while on screen ---------- */
+// paused by the visitor's button, or from the start if they asked for reduced motion
+const loopBtn = document.querySelector(".loop-toggle");
+let loopsOff = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const loopVids = [...document.querySelectorAll(".noir-row video")];
+function playLoop(v) {
+  if (!v.src) v.src = v.dataset.src; // load only once it is needed
+  v.play().catch(() => {});
+}
 const loopIO = new IntersectionObserver((entries) => entries.forEach((e) => {
   const v = e.target;
-  if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+  if (e.isIntersecting && !loopsOff) playLoop(v); else v.pause();
 }), { threshold: 0.3 });
-document.querySelectorAll(".noir-row video").forEach((v) => loopIO.observe(v));
+loopVids.forEach((v) => loopIO.observe(v));
+function setLoopBtn() {
+  loopBtn.textContent = loopsOff ? "▶ הפעלת הסרטונים" : "⏸ עצירת הסרטונים";
+}
+loopBtn?.addEventListener("click", () => {
+  loopsOff = !loopsOff;
+  loopVids.forEach((v) => (loopsOff ? v.pause() : playLoop(v)));
+  setLoopBtn();
+});
+if (loopBtn) setLoopBtn();
 
 /* ---------- Deep links (#talking etc.): stay on target while images above it load ---------- */
 const hashTarget = location.hash && document.querySelector(location.hash);
